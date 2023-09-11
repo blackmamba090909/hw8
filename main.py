@@ -16,22 +16,22 @@ def get_birthdays_per_week(users):
             if birthday < current_date:
                 birthday = birthday.replace(year=(current_date.year + 1))
             if birthday >= current_date and birthday <= current_date + timedelta(days=7):
-                day_name = birthday.isoweekday()
-                if day_name == 1 or day_name == 6 or day_name == 7:
+                day_name =  birthday.strftime("%A")
+                if day_name == "Monday" or day_name == "Saturday" or day_name == "Sunday":
                     dict_with_birthday.setdefault("Monday", [])
                     dict_with_birthday["Monday"].append(names[0])
-                elif day_name == 2:
-                    dict_with_birthday.setdefault("Tuesday", [])
-                    dict_with_birthday["Tuesday"].append(names[0])
-                elif day_name == 3:
-                    dict_with_birthday.setdefault("Wednesday", [])
-                    dict_with_birthday["Wednesday"].append(names[0])
-                elif day_name == 4:
-                    dict_with_birthday.setdefault("Thursday", [])
-                    dict_with_birthday["Thursday"].append(names[0])
-                elif day_name == 5:
-                    dict_with_birthday.setdefault("Friday", [])
-                    dict_with_birthday["Friday"].append(names[0])
+                elif day_name == "Tuesday":
+                    dict_with_birthday.setdefault(day_name, [])
+                    dict_with_birthday[day_name].append(names[0])
+                elif day_name == "Wednesday":
+                    dict_with_birthday.setdefault(day_name, [])
+                    dict_with_birthday[day_name].append(names[0])
+                elif day_name == "Thursday":
+                    dict_with_birthday.setdefault(day_name, [])
+                    dict_with_birthday[day_name].append(names[0])
+                elif day_name == "Friday":
+                    dict_with_birthday.setdefault(day_name, [])
+                    dict_with_birthday[day_name].append(names[0])
         
         return dict_with_birthday
 
