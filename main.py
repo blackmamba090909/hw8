@@ -17,26 +17,19 @@ def get_birthdays_per_week(users):
                 birthday = birthday.replace(year=(current_date.year + 1))
             if birthday >= current_date and birthday <= current_date + timedelta(days=7):
                 day_name =  birthday.strftime("%A")
-                if day_name == "Monday" or day_name == "Saturday" or day_name == "Sunday":
-                    dict_with_birthday.setdefault("Monday", [])
-                    dict_with_birthday["Monday"].append(names[0])
-                elif day_name == "Tuesday":
+                if day_name in ("Monday", "Saturday" , "Sunday"):
+                    day_name = "Monday"
                     dict_with_birthday.setdefault(day_name, [])
                     dict_with_birthday[day_name].append(names[0])
-                elif day_name == "Wednesday":
+                elif day_name in ("Tuesday", "Wednesday", "Thursday", "Friday"):
                     dict_with_birthday.setdefault(day_name, [])
                     dict_with_birthday[day_name].append(names[0])
-                elif day_name == "Thursday":
-                    dict_with_birthday.setdefault(day_name, [])
-                    dict_with_birthday[day_name].append(names[0])
-                elif day_name == "Friday":
-                    dict_with_birthday.setdefault(day_name, [])
-                    dict_with_birthday[day_name].append(names[0])
+                
         
         return dict_with_birthday
 
 res = get_birthdays_per_week([
-    {"name": "Jan Koum", "birthday": datetime(1976, 9, 11).date()},
+    {"name": "Jan Koum", "birthday": datetime(1976, 9, 20).date()},
     {"name": "Anastasia Bondarenko", "birthday": datetime(2003, 9, 16).date()}
 ])
 
