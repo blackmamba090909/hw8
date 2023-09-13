@@ -19,11 +19,9 @@ def get_birthdays_per_week(users):
                 day_name =  birthday.strftime("%A")
                 if day_name in ("Monday", "Saturday" , "Sunday"):
                     day_name = "Monday"
-                    dict_with_birthday.setdefault(day_name, [])
-                    dict_with_birthday[day_name].append(names[0])
-                elif day_name in ("Tuesday", "Wednesday", "Thursday", "Friday"):
-                    dict_with_birthday.setdefault(day_name, [])
-                    dict_with_birthday[day_name].append(names[0])
+                dict_with_birthday.setdefault(day_name, [])
+                dict_with_birthday[day_name].append(names[0])
+                
                 
         
         return dict_with_birthday
