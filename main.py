@@ -17,7 +17,7 @@ def get_birthdays_per_week(users):
                 birthday = birthday.replace(year=(current_date.year + 1))
             if birthday >= current_date and birthday <= current_date + timedelta(days=7):
                 day_name =  birthday.strftime("%A")
-                if day_name in ("Monday", "Saturday" , "Sunday"):
+                if day_name in ("Monday", "Saturday", "Sunday"):
                     day_name = "Monday"
                 dict_with_birthday.setdefault(day_name, [])
                 dict_with_birthday[day_name].append(names[0])
